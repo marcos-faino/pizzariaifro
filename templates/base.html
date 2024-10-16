@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}{% endblock %}</title>
+    <link rel="stylesheet" 
+          href="{{ url_for('static',filename='estilos/pico.min.css') }}">
+    <link rel="stylesheet" 
+          href="{{ url_for('static', filename='estilos/pico.color.min.css') }}">
+</head>
+
+<body data-theme="dark">
+    <main class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/"><img src="{{ url_for('static', filename='imagens/tasty-pizza.png') }}" alt="imagem de pizza" width="10%"><strong>Pizzaria Ifro</strong></a></li>
+                </ul>
+                <ul>
+                    <li><a href="/menu">Menu</a></li>
+                    <li><a href="#">Histórico</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="/login">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        {% block conteudo %}
+        {% endblock %}
+         <footer>
+            <nav>
+                <ul>
+                  <li><a href="#" class="contrast"><img src="{{ url_for('static', filename='imagens/icon-face.png') }}" alt="facebook" width="15%">Facebook</a></li>
+                  <li><a href="#" class="contrast"><img src="{{ url_for('static', filename='imagens/icon-instagram.png') }}" alt="instagram" width="15%">Instagram</a></li>
+                  <li><a href="#" class="contrast"><img src="{{ url_for('static', filename='imagens/icon-twitter.png') }}" alt="twitter" width="15%">Twitter</a></li>
+                </ul>
+              </nav>
+         </footer>
+    </main>
+</body>
+
+</html>
