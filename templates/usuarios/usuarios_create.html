@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Usuarios Create{% endblock %}
+{% block conteudo %}
+{% set mensagens = get_flashed_messages(with_categories=true) %}
+{% if mensagens %}
+{% for categoria, msg in mensagens %}
+<h6 class="pico-background-{{categoria}}">
+    {{ msg }}<br>
+</h6>
+{% endfor %}
+{% endif %}
+<article data-theme="light">
+    <form action="/usuarios/create" method="POST">
+        Nome: <input type="text" name="nome"><br/>
+        E-mail: <input type="email" name="email"><br/>
+        Senha: <input type="password" name="senha"><br/>
+        Confirmar senha: <input type="password" name="csenha"><br/>
+        <input type="submit" role="button" value="Cadastrar">
+        <input type="reset" role="button" value="Limpar">
+    </form>
+</article>
+{% endblock %}

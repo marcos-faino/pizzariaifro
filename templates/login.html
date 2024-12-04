@@ -1,25 +1,27 @@
 {% extends 'base.html' %}
-
 {% block titulo %} Login {% endblock %}
 
 {% block conteudo %}
 <article>
-  {% set mensagens = get_flashed_messages(with_categories=true) %}
-  {% if mensagens %}
-    {% for categ, mns in mensagens %}
-      <h6 class="pico-background-{{ categ }}">{{ mns }}</h6>
-    {% endfor %}
-  {% endif %}
-  <form action="/autenticar" method="POST">
+{% set mensagens = get_flashed_messages(with_categories=true) %}
+    {% if mensagens %}
+        {% for categoria, msg in mensagens %}
+    <h6 class="pico-background-{{categoria}}">
+        {{ msg }}<br>
+    </h6>
+        {% endfor %}
+    {% endif %}
+<form action="/autenticar" method="post">
     <label>
-      Login:
-      <input type="text" name="usuario" id="login" placeholder="nome de usuário">
+        Login:
+        <input type="text" name="usuario" id="login" placeholder="Nome de usuário">
     </label>
     <label>
-      Senha:
-      <input type="password" name="senha" id="senha" placeholder="sua senha">
+        Senha:
+        <input type="password" name="senha" id="senha" placeholder="Sua senha">
     </label>
     <button type="submit">Entrar</button>
-  </form>
+</form>
 </article>
+
 {% endblock %}

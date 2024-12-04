@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Recuperar Categorias{% endblock %}
+
+{% block conteudo %}
+<article>
+    <h3>Categorias</h3>
+    <table class="striped">
+        <tr>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Atualizar</th>
+            <th>Excluir</th>
+        </tr>
+        {% for categoria in categorias %}
+        <tr>
+            <td>{{ categoria.id }}</td>
+            <td>{{ categoria.descricao }}</td>
+            <td>{{ categoria.preco }}</td>
+            <td>
+                <a role="button" href="update/{{ categoria.id }}">🔃</a>
+            </td>
+            <td>
+                <a role="button" href="delete/{{ categoria.id }}">❌</a>
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="5"><a href="/categorias/create" role="button" class="secondary outline">Nova Categoria</a></td>
+        </tr>
+    </table>
+</article>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Criar Categoria{% endblock %}
+
+{% block conteudo %}
+<article data-theme="light">
+    <form action="/categorias/create" method="POST">
+        Descrição: <input type="text" name="descricao"><br/>
+        Preço: <input type="text" name="preco"><br/>
+        <input type="submit" role="button" value="Cadastrar">
+        <input type="reset" role="button" value="Limpar">
+    </form>
+</article>
+{% endblock %}

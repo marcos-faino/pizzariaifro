@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+    {% block conteudo %}
+    <header><h2>Área Administrativa do Site</h2></header>
+        <section class="grid">
+            <article class="col">
+                <header><h2>Usuários</h2></header>
+                <a href="{{ url_for('usuarios.create') }}" role="button" class="secondary outline">Novo Usuário</a>
+                <a href="{{ url_for('usuarios.recovery') }}" role="button" class="secondary outline">Listar Usuários</a>
+            </article>
+            <article class="col">
+                <header><h2>Categorias</h2></header>
+                <a href="{{ url_for('categorias.create') }}" role="button" class="secondary outline">Nova Categoria</a>
+                <a href="{{ url_for('categorias.recovery') }}" role="button" class="secondary outline">Listar Categorias</a>
+            </article>
+            <article class="col">
+                <header><h2>Pizzas</h2></header>
+                <a href="/pizzas/create" role="button" class="secondary outline">Nova Pizza</a>
+                <a href="/pizzas/create" role="button" class="secondary outline">Listar Pizzas</a>
+            </article>
+        </section>
+    {% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Recovery Usuário {% endblock %}
+
+{% block conteudo %}
+    <article>
+        <h3>Usuários</h3>
+        <table class="striped">
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Atualizar🗃️</th>
+                <th>Excluir🩻</th>
+            </tr>
+            {% for u in usuarios %}
+            <tr>
+                <td>{{ u.nome }}</td>
+                <td>{{ u.email }}</td>
+                <td>
+                    <a role="button" href="#">🔃</a>
+                </td>
+                <td>
+                    <a role="button" href="#">❌</a>
+                </td>
+            </tr>
+            {% endfor %}
+            <td colspan="4"><a href="/usuarios/create" role="button" class="secondary outline">Novo Usuário</a></td>
+        </table>
+    </article>
+
+{% endblock %}
