@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Atualizar Pizza {{ pizza.sabor }} {% endblock %}
+
+{% block conteudo %}
+<article data-theme="light">
+    <form action="/pizzas/update/{{ pizza.id }}" method="POST">
+        Sabor: <input type="text" name="sabor" value="{{ pizza.sabor }}"><br/>
+        Ingredientes: <input type="text" name="ingredientes" value="{{ pizza.ingredientes }}"><br/>
+        Categoria: <select name="categoria_id">
+        {% for cat in categorias %}
+            <option value="{{ cat.id }}" {% if cat.id == pizza.categoria_id %} selected {% endif %}>
+                {{ cat }}
+            </option>
+        {% endfor %}
+        </select>
+        <input type="submit" role="button" value="Atualizar">
+        <input type="reset" role="button" value="Limpar">
+    </form>
+</article>
+{% endblock %}

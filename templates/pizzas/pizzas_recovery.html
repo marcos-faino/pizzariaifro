@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Recuperar Pizzas{% endblock %}
+
+{% block conteudo %}
+<article>
+    <h3>Categorias</h3>
+    <table class="striped">
+        <tr>
+            <th>ID</th>
+            <th>Sabor</th>
+            <th>Categoria</th>
+            <th>Ingredientes</th>
+            <th>Preço</th>
+            <th>Atualizar</th>
+            <th>Excluir</th>
+        </tr>
+        {% for pizza in pizzas %}
+        <tr>
+            <td>{{ pizza.id }}</td>
+            <td>{{ pizza.sabor }}</td>
+            <td>{{ pizza.categoria }}</td>
+            <td>{{ pizza.ingredientes }}</td>
+            <td>{{ pizza.preco }}</td>
+            <td>
+                <a role="button" href="update/{{ pizza.id }}">🗃️</a>
+            </td>
+            <td>
+                <a role="button" href="delete/{{ pizza.id }}">🩻</a>
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="5"><a href="/pizzas/create" role="button" class="secondary outline">Nova Pizza</a></td>
+        </tr>
+    </table>
+</article>
+{% endblock %}

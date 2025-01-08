@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Excluir Pizza {{ pizza.sabor }} {% endblock %}
+
+{% block conteudo %}
+<article data-theme="light">
+    <div>
+        <h3>Você tem certeza que deseja excluir a pizza {{ pizza.sabor }}?</h3>
+    </div>
+    <form action="/pizzas/delete" method="POST">
+        <input type="hidden" name="id" value="{{ pizza.id }}">
+        <input type="submit" role="button" value="Sim" class="pico-background-red-500">
+        <a href="{{ url_for('pizzas.recovery') }}">
+            <div role="button" class="pico-background-green-600">Cancelar</div>
+        </a>
+    </form>
+
+</article>
+{% endblock %}

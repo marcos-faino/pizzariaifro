@@ -4,6 +4,7 @@ import os
 from flask_migrate import Migrate
 from controllers.usuarios import bp_usuarios
 from controllers.categorias import bp_categorias
+from controllers.pizzas import bp_pizzas
 
 
 app = Flask(__name__)
@@ -24,3 +25,4 @@ migrate = Migrate(app,db)
 import routes
 app.register_blueprint(bp_usuarios, url_prefix='/usuarios')
 app.register_blueprint(bp_categorias, url_prefix='/categorias')
+app.register_blueprint(bp_pizzas, url_prefix='/pizzas')
